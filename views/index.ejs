@@ -10,38 +10,112 @@
       integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+    <style>
+        body{
+            background-image: url(/images/photo-1477346611705-65d1883cee1e.jpeg);
+        }
+        h5{
+            text-align: center;
+        }
+        .mainContainer{
+            /* border: 1px solid; */
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            height: 50%;
+            width: 50%;
+            margin: auto;
+            margin-top: 10%;
+            /* justify-content: center;
+            align-items: center; */
+        }
+        .login,.update{
+            color: white;
+            border: 1px solid ;
+            border-radius: 8px;
+            padding: 20px;
+            backdrop-filter: blur(12px);
+        }
+        .register{
+            backdrop-filter: blur(12px);
+            color: white;
+            border: 1px solid;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        /* #deletbtn{
+            width: 60px;
+            height: 40px;
+        } */
+    </style>
   </head>
   <body>
-    <form action="/register" method="post" enctype="multipart/form-data">
-      <label for="name"> enter name</label>
-      <input type="text" id="name" name="name" />
-      <label for="mail"> enter email</label>
-      <input type="email" id="mail" name="mail" />
-      <label for="password"> enter password</label>
-      <input type="password" id="password" name="password" />
-      <label for="image">user image</label>
-      <input type="file" id="image" name="image" />
-
-      <button type="submit">register</button>
-    </form>
+    <div class="mainContainer">
+        <div class="register">
+            <h5>For register</h5>
+            <form action="/register" method="post" enctype="multipart/form-data">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Enter Name</label>
+                  <input type="text" class="form-control" id="name" name="name" />
+                </div>
+              
+                <div class="mb-3">
+                  <label for="mail" class="form-label">Enter Email</label>
+                  <input type="email" class="form-control" id="mail" name="mail" />
+                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                </div>
+              
+                <div class="mb-3">
+                  <label for="password" class="form-label">Enter Password</label>
+                  <input type="password" class="form-control" id="password" name="password" />
+                </div>
+              
+                <div class="mb-3">
+                  <label for="image" class="form-label">User Image</label>
+                  <input type="file" class="form-control" id="image" name="image" />
+                </div>
+              
+                <button type="submit" class="btn btn-primary">Register</button>
+              </form>
+              
+</div>
+<div class="login">
+    <h5>For Login</h5>
     <form action="" id="loginForm">
-      <label for="mail"> enter email</label>
-      <input type="email" id="mail" name="mail" />
-      <label for="password"> enter password</label>
-      <input type="password" id="password" name="password" />
-      <button type="submit" id="loginFormbtn">login</button>
+        <div class="mb-3">
+            <label for="mail" class="form-label">Enter Email</label>
+            <input type="email" class="form-control" id="mail" name="mail" />
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Enter Password</label>
+            <input type="password" class="form-control" id="password" name="password" />
+          </div>
+        
+      <button type="submit" id="loginFormbtn" class="btn btn-primary">login</button>
     </form>
-    <h3>for update</h3>
+</div>
+<div class="update">
+    <h5>For update</h5>
+    
     <form action="" method="" id="updateForm">
-      <label for="mail"> enter email</label>
-      <input type="email" id="mail" name="mail" />
-      <label for="name"> enter name</label>
-      <input type="text" id="name" name="name" />
-      <label for="password"> enter password</label>
-      <input type="password" id="password" name="password" />
-      <button type="submit">login</button>
+        <div class="mb-3">
+            <label for="mail" class="form-label">Enter Email</label>
+            <input type="email" class="form-control" id="mail" name="mail" />
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="name" class="form-label">Enter Name</label>
+            <input type="text" class="form-control" id="name" name="name" />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Enter Password</label>
+            <input type="password" class="form-control" id="password" name="password" />
+          </div>
+      <button type="submit" class="btn btn-primary">Update</button>
     </form>
-    <button id="deletbtn">Delete account</button>
+</div>
+    <button id="deletbtn" class="btn btn-primary">Delete </button>
 
     <div class="container mt-4">
       <button id="showUsersBtn" class="btn btn-primary mb-4">
@@ -53,7 +127,7 @@
         <!-- Cards will appear here -->
       </div>
     </div>
-
+</div>
     <script>
       document
         .getElementById("deletbtn")
