@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show users</title>
+</head>
+<body>
+     
+    <div class="container mt-4">
+        <button id="showUsersBtn" class="btn btn-primary mb-4">Show All Users</button>
+        <button id="" class="btn btn-primary mb-4">Show user </button>
+    
+        <div id="usersContainer" class="d-flex flex-wrap gap-3">
+            
+          <!-- Cards will appear here -->
+        </div>
+      </div>
+       <script>
+      document.getElementById("showUsersBtn").addEventListener("click", async () => {
+        try {
+          const res = await fetch("/allUser");
+          const data = await res.json();
+          const users=data.data
+  
+          if (data.success && users.length > 0) {
+            const container = document.getElementById("usersContainer");
+            container.innerHTML = ""; 
+  
+            users.forEach(user => {
+              const card = document.createElement("div");
+              card.classList.add("card");
+              card.style.width = "18rem";
+  
+              card.innerHTML = `
+              
+                <img src="/images/${user.image}" class="card-img-top" alt="${user.name}" >
+                <div class="card-body">
+                  <h6 class="card-title">Name</h6>
+                  <p class="card-text">${user.name}</p>
+                  <h6 class="card-title">Mail</h6>
+                  <p class="card-text">${user.mail}</p>
+                </div>
+              `;
+  
+              container.appendChild(card);
+            });
+          } else {
+            alert("No users found");
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      });
+      //show 1 user only
+      document.getElementById("showUsersBtn").addEventListener("click", async () => {
+        try {
+          const res = await fetch("/allUser");
+          const data = await res.json();
+          const users=data.data
+  
+          if (data.success && users.length > 0) {
+            const container = document.getElementById("usersContainer");
+            container.innerHTML = ""; 
+  
+            users.forEach(user => {
+              const card = document.createElement("div");
+              card.classList.add("card");
+              card.style.width = "18rem";
+  
+              card.innerHTML = `
+              
+                <img src="/images/${user.image}" class="card-img-top" alt="${user.name}" >
+                <div class="card-body">
+                  <h6 class="card-title">Name</h6>
+                  <p class="card-text">${user.name}</p>
+                  <h6 class="card-title">Mail</h6>
+                  <p class="card-text">${user.mail}</p>
+                </div>
+              `;
+  
+              container.appendChild(card);
+            });
+          } else {
+            alert("No users found");
+          }
+        } catch (err) {
+          console.error(err);
+        }
+      });
+    </script>
+
+</body>
+</html>
