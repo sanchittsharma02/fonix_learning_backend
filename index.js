@@ -3,6 +3,7 @@ const multer = require("multer");
 const mongoose = require("mongoose");
 const fs = require("fs");
 const path = require("path");
+const mongosanitize=require("express-mongo-sanitize")
 const app = express();
 const port = 1001;
 
@@ -20,9 +21,10 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use(express.urlencoded({ extended: "true" }));
+// app.use(mongosanitize({allowDots: true}))
+
 app.set("view engine", "ejs");
 app.set("views", path.resolve("./views"));
-
 app.use("/", userRoute);
 
 app.use(errorhandler);
