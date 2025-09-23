@@ -1,6 +1,6 @@
 const jwt=require("jsonwebtoken")
 const sendResponse = require("../utils/sendResponse.utils")
-const User= require("../models/usermodels")
+const {user}= require("../models/usermodels")
 const key ='abc@abc'
 
 async function restrictUser(req, res, next) {
@@ -12,19 +12,19 @@ async function restrictUser(req, res, next) {
       }
   
       const decoded = jwt.verify(token, key);
-      console.log("Decoded JWT:", decoded);
+      // console.log("Decoded JWT:", decoded);
   
       if (!decoded || !decoded.mail) {
         return sendResponse(res, false, null, "Invalid token payload", 401);
       }
   
-      const user = await User.findOne({ mail: decoded.mail });
+      const currentUser = await user.findOne({ mail: decoded.mail });
   
       if (!user) {
         return sendResponse(res, false, null, "No user found", 401);
       }
   
-      req.user = user;
+      req.user = currentUser;
       next();
     } catch (error) {
       console.log("JWT error:", error);

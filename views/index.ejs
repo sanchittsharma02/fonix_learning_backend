@@ -53,7 +53,7 @@
     <div class="mainContainer">
         <div class="register">
             <h5>For register</h5>
-            <form action="/register" method="post" enctype="multipart/form-data">
+            <form action="/register" method="post" enctype="multipart/form-data" id="registerform">
                 <div class="mb-3">
                   <label for="name" class="form-label">Enter Name</label>
                   <input type="text" class="form-control" id="name" name="name" />
@@ -133,8 +133,8 @@
         .getElementById("deletbtn")
         .addEventListener("click", async () => {
           try {
-            const res = await fetch("/delete", {
-              method: "DELETE",
+            const res = await fetch("/softdelete", {
+              method: "PATCH",
             });
 
             const data = await res.json();
@@ -187,6 +187,28 @@
           }
         });
 
+        // register form
+      document
+        .getElementById("registerform")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault();
+
+          const formData = new FormData(this);
+
+          try {
+            const res = await fetch("/register", {
+              method: "POST",
+            
+              body: formData,
+            });
+
+            const data = await res.json();
+            console.log("Server Response:", data);
+          } catch (err) {
+            console.error("Error:", err);
+          }
+        });
+
       document
         .getElementById("showUsersBtn")
         .addEventListener("click", async () => {
@@ -194,74 +216,18 @@
             const res = await fetch("/allUser");
             const data = await res.json();
             const users = data.data;
-
-            if (data.success && users.length > 0) {
-              const container = document.getElementById("usersContainer");
-              container.innerHTML = "";
-
-              users.forEach((user) => {
-                const card = document.createElement("div");
-                card.classList.add("card");
-                card.style.width = "18rem";
-
-                card.innerHTML = `
+            console.log(data);
+            
+            // localStorage.setItem("users", JSON.stringify(users));
+            // window.location.href ="/users"
               
-                <img src="/images/${user.image}" class="card-img-top" alt="${user.name}" >
-                <div class="card-body">
-                  <h6 class="card-title">Name</h6>
-                  <p class="card-text">${user.name}</p>
-                  <h6 class="card-title">Mail</h6>
-                  <p class="card-text">${user.mail}</p>
-                </div>
-              `;
-
-                container.appendChild(card);
-              });
-            } else {
-              alert("No users found");
-            }
+             
           } catch (err) {
             console.error(err);
           }
         });
       //show 1 user only
-      document
-        .getElementById("showUsersBtn")
-        .addEventListener("click", async () => {
-          try {
-            const res = await fetch("/allUser");
-            const data = await res.json();
-            const users = data.data;
-
-            if (data.success && users.length > 0) {
-              const container = document.getElementById("usersContainer");
-              container.innerHTML = "";
-
-              users.forEach((user) => {
-                const card = document.createElement("div");
-                card.classList.add("card");
-                card.style.width = "18rem";
-
-                card.innerHTML = `
-              
-                <img src="/images/${user.image}" class="card-img-top" alt="${user.name}" >
-                <div class="card-body">
-                  <h6 class="card-title">Name</h6>
-                  <p class="card-text">${user.name}</p>
-                  <h6 class="card-title">Mail</h6>
-                  <p class="card-text">${user.mail}</p>
-                </div>
-              `;
-
-                container.appendChild(card);
-              });
-            } else {
-              alert("No users found");
-            }
-          } catch (err) {
-            console.error(err);
-          }
-        });
+     
     </script>
 
     <script

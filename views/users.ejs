@@ -4,91 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Show users</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+      #filtersec {
+    width: 50%;
+      }
+    </style>
 </head>
 <body>
      
-    <div class="container mt-4">
-        <button id="showUsersBtn" class="btn btn-primary mb-4">Show All Users</button>
-        <button id="" class="btn btn-primary mb-4">Show user </button>
+   <div class="result">
+    <h3>All users</h3>
     
-        <div id="usersContainer" class="d-flex flex-wrap gap-3">
-            
-          <!-- Cards will appear here -->
+    <h4>total users : <%=totalUsers %></h4>
+    <h4>Apply filters   </h4>
+    <form action="/allUser" method="get">
+    <div class="input-group mb-3" id="filtersec">
+      <span class="input-group-text" id="basic-addon1">Sort</span>
+      <input type="text" class="form-control" placeholder="filter By age" aria-label="age" aria-describedby="basic-addon1" name="age">
+    </div>
+    <button type="submit" class="btn btn-outline-secondary">Apply</button>
+    <button type="submit" class="btn btn-outline-secondary">cancel</button>
+  </form>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">First</th>
+          <th scope="col">email</th>
+          <th scope="col">gender</th>
+          <th scope="col">DOB</th>
+        </tr>
+      </thead>
+      <tbody>
+       <% if (users.length <=0) { %>
+        <h4>no users found</h4>
+       <% } %>
+        <%users.forEach(user => { %>
+          <tr>
+            <th scope="row"><%=user._id %></th>
+            <td><%=user.first_name %></td>
+            <td><%=user.email %></td>
+            <td><%=user.gender %></td>
+            <td><%=user.dob %></td>
+          </tr>
+        <% }) %>
+        <div>
+          <% if (page > 1) { %>
+            <a href="/users?page=<%=page - 1 %>">Previous</a>
+          <% } %>
+        
+          <% if (page < totalPages) { %>
+            <a href="/users?page=<%=page + 1 %>">Next</a>
+          <% } %>
         </div>
-      </div>
-       <script>
-      document.getElementById("showUsersBtn").addEventListener("click", async () => {
-        try {
-          const res = await fetch("/allUser");
-          const data = await res.json();
-          const users=data.data
-  
-          if (data.success && users.length > 0) {
-            const container = document.getElementById("usersContainer");
-            container.innerHTML = ""; 
-  
-            users.forEach(user => {
-              const card = document.createElement("div");
-              card.classList.add("card");
-              card.style.width = "18rem";
-  
-              card.innerHTML = `
-              
-                <img src="/images/${user.image}" class="card-img-top" alt="${user.name}" >
-                <div class="card-body">
-                  <h6 class="card-title">Name</h6>
-                  <p class="card-text">${user.name}</p>
-                  <h6 class="card-title">Mail</h6>
-                  <p class="card-text">${user.mail}</p>
-                </div>
-              `;
-  
-              container.appendChild(card);
-            });
-          } else {
-            alert("No users found");
-          }
-        } catch (err) {
-          console.error(err);
-        }
-      });
-      //show 1 user only
-      document.getElementById("showUsersBtn").addEventListener("click", async () => {
-        try {
-          const res = await fetch("/allUser");
-          const data = await res.json();
-          const users=data.data
-  
-          if (data.success && users.length > 0) {
-            const container = document.getElementById("usersContainer");
-            container.innerHTML = ""; 
-  
-            users.forEach(user => {
-              const card = document.createElement("div");
-              card.classList.add("card");
-              card.style.width = "18rem";
-  
-              card.innerHTML = `
-              
-                <img src="/images/${user.image}" class="card-img-top" alt="${user.name}" >
-                <div class="card-body">
-                  <h6 class="card-title">Name</h6>
-                  <p class="card-text">${user.name}</p>
-                  <h6 class="card-title">Mail</h6>
-                  <p class="card-text">${user.mail}</p>
-                </div>
-              `;
-  
-              container.appendChild(card);
-            });
-          } else {
-            alert("No users found");
-          }
-        } catch (err) {
-          console.error(err);
-        }
-      });
-    </script>
-
+      
+      </tbody>
+    </table>
+   </div>
+      
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 </html>
