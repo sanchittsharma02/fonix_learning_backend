@@ -12,6 +12,157 @@ const mongosanitize = require("express-mongo-sanitize");
 const { abort, send } = require("process");
 const { error } = require("console");
 const { json } = require("stream/consumers");
+const customer=require("../models/customerModel")
+const product=require("../models/productModel")
+// const order=require("../models/orderModel");
+const order = require("../models/orderModel");
+const { name } = require("ejs");
+
+async function aggregation(req,res) {
+
+  /**
+   * $gt greater,$lt,$eq
+   */
+  const orders=await order.aggregate([
+    {
+      $lookup: {
+        from: "customers",
+        localField: "customerId",
+        foreignField: "_id",
+        as: "customer"
+      }
+    },
+    {
+      $lookup: {
+        from: "products",
+        localField: "products.productId",
+        foreignField: "_id",
+        as: "product"
+      }
+    },
+    {$unwind: "$customer"},
+    {$unwind: "$product"},
+    {
+      $group: {
+        _id: "$customerId",
+        name:{ $first:"$customer.name"}, 
+        productname: { $push:"$product.productname"},
+        totalspent: {
+        $sum: "$totalamount"
+        }
+      }
+    },
+    // {
+    //     $addFields:{
+    //       orderAmount:"$totalamount"
+    //     }
+    // },
+    {
+      $project: {
+        totalspent: 1,
+        name:1,
+        productname:1,
+        
+        _id:0
+      }  
+    }
+    
+  ])
+  return sendResponse(
+    res,
+    true,
+    orders,
+    "total spent by customers",
+    200
+  )
+  // console.log(orders);
+  
+}
+
+
+async function popularproduct(req, res) {
+  const orders = await order.aggregate([
+    { $unwind: "$products" }, // unwind the products array in order
+    {
+      $group: {
+        _id: "$products.productId",
+        totalsold: { $sum: "$products.quantity" }
+      }
+    },
+    {
+      $lookup: {
+        from: "products",
+        localField: "_id",
+        foreignField: "_id",
+        as: "productDetails"
+      }
+    },
+    { $unwind: "$productDetails" },
+    {
+      $project: {
+        _id: 0,
+        productId: "$_id",
+        productName: "$productDetails.productname",
+        totalsold: 1
+      }
+    },
+    {
+      $sort:{
+        totalsold:-1
+      }
+    },
+    {
+      $limit:1
+    }
+  ]);
+
+  return sendResponse(res, true, orders, "popular product", 200);
+}
+
+ async function averageprice(req,res) {
+  const orders= await order.aggregate([
+    {$unwind:"$products"},
+    {
+      $group: {
+        _id: "$_id", // group by order
+        totalOrder: { 
+          $sum: { $multiply: ["$products.quantity", "$products.price"] } 
+        }
+      }
+    },
+    // {
+    //   $group:{
+    //     _id:"$_id",
+    //     totalorders:{ $sum:{ $multiply:["$products.quantity","$products.price"]}},
+    //     averagePrice :{
+    //       $avg:"$totalorders"
+    //     }
+    //   }
+    // }
+    {
+      $group:{
+        _id:null,       
+        averagePrice:{
+          $avg:"$totalOrder"
+        }
+      }
+    },
+    {
+      $project:{
+        _id:0,
+        averagePrice:1 
+      }
+    }
+  ])
+  return sendResponse(
+    res,
+    true,
+    orders,
+    "average Price Per order",
+    200
+  )
+}
+
 
 async function userRegister(req, res) {
   try {
@@ -208,9 +359,11 @@ async function showAllUser(req, res) {
     let users = await user.find({
       isDeleted:false
     }).skip(skip).limit(limit);
-    // console.log(isNaN(search));
-    // console.log(search);
+    
 
+
+ 
+  
     if (search) {
       if (!isNaN(search)) {
         const age = parseInt(search);
@@ -243,7 +396,7 @@ async function showAllUser(req, res) {
     // const users = await UserDetail
     // const users = await UserDetails.find({}).skip(skip).limit(limit);
     // const users=result.slice(skip,skip+limit)
-    const totalUsers = await UserDetails.countDocuments({});
+    const totalUsers = await user.countDocuments({});
     const totalPages = Math.ceil(totalUsers / limit);
 
     return sendResponse(
@@ -401,5 +554,8 @@ module.exports = {
   updateUser,
   deleteUser,
   renderusers,
-  softDelete
+  softDelete,
+  aggregation,
+  popularproduct,
+  averageprice
 };

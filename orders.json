@@ -1,0 +1,43 @@
+[
+  {
+    "customerId": "68d3959f6f35dfb6f9dd2c10",
+    "orderDate": "2025-09-24",
+    "totalamount": 11400,
+    "products": [
+      {
+        "productId": "68d398dea7beca921f0ec5b8",
+        "quantity": 1,
+        "price": 10000
+      },
+      {
+        "productId": "68d398dea7beca921f0ec5ba",
+        "quantity": 2,
+        "price": 700
+      }
+    ]
+  },
+  {
+    "customerId": "68d3959f6f35dfb6f9dd2c16",
+    "orderDate": "2025-09-24",
+    "totalamount": 4000,
+    "products": [
+      {
+        "productId": "68d398dea7beca921f0ec5bb",
+        "quantity": 2,
+        "price": 2000
+      }
+    ]
+  },
+  {
+    "customerId": "68d3955da6a53bb45681cdde",
+    "orderDate": "2025-09-24",
+    "totalamount": 60000,
+    "products": [
+      {
+        "productId": "68d398dea7beca921f0ec5bc",
+        "quantity": 3,
+        "price": 20000
+      }
+    ]
+  }
+]

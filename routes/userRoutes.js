@@ -11,7 +11,10 @@ const {
   deleteUser,
   userRegister,
   renderusers,
-  softDelete
+  softDelete,
+  aggregation,
+  popularproduct,
+  averageprice
 } = require("../controllers/userControllers");
 
 const restrictUser = require("../middlewares/auth");
@@ -173,5 +176,8 @@ router.put("/update", restrictUser, updateUser);
  */
 router.patch("/softdelete", restrictUser, softDelete);
 router.delete("/delete", restrictUser, deleteUser);
+router.get("/totalspent",aggregation)
+router.get("/popularproduct",popularproduct)
+router.get("/averageprice",averageprice)
 
 module.exports = router;

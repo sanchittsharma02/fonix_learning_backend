@@ -1,6 +1,7 @@
 const { number, string, date } = require("joi")
 const mongoose=require("mongoose")
 const fs=require("fs")
+
 const { type } = require("os")
 
 const userSchema=new mongoose.Schema({
@@ -11,6 +12,7 @@ const userSchema=new mongoose.Schema({
     mail:{
         type:String,
         required:true,
+        index:true,
         unique:true
     },
     password:{
@@ -25,6 +27,20 @@ const userSchema=new mongoose.Schema({
         default: false,
       }
     
+})
+const collegeSchema=new mongoose.Schema({
+    collegeName:{
+        type :String
+
+    },
+    city:{
+        type:String
+    },
+    pincode:{
+        type :Number
+    }
+
+
 })
 
 const userDetails=new mongoose.Schema({
@@ -41,16 +57,37 @@ const userDetails=new mongoose.Schema({
         type :String
     },
     dob:{
-        type : String
-    }
-},{timestamps:true})
+        type :Date
+    },
+    collegedetails:[collegeSchema]
+}
+,{timestamps:true})
 
-// const users=[]
-   
+userDetails.virtual("age").get(function(){
+    globalThis.Date;
+        const currentyear = new globalThis.Date().getFullYear();
+        const userage = currentyear - userDetails.dob;
+        return userage
+})
 
+userDetails.set("toJSON",{virtuals:true})
+userDetails.set("toObject",{virtuals:true})
+
+  
 const user =mongoose.model("user",userSchema)
 const UserDetails =mongoose.model("userDetails",userDetails)
-// const data =  fs.readFileSync("./MOCK_DATA.json","utf-8") 
+
+module.exports={user,UserDetails}
+
+
+
+
+
+
+
+
+
+// const data =  fs.readFileSync("./usersdata.json","utf-8") 
 //         const users=JSON.parse(data)
     
 //         const insertUsers = async () => {
@@ -64,4 +101,18 @@ const UserDetails =mongoose.model("userDetails",userDetails)
 //           };
           
 //           insertUsers();   
-module.exports={user,UserDetails}
+
+
+ 
+
+/**
+ * aggregation 
+ * $lookup:{
+ * for joining the models
+ * }
+ * $math:{}
+ * $addFields:{
+ * fieldName:{
+ * }
+ * }
+ */

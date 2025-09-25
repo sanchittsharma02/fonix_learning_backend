@@ -1,0 +1,702 @@
+[
+  {
+    "id": 1,
+    "first_name": "Donald",
+    "email": "sjohnson@nelson.biz",
+    "gender": "Female",
+    "dob": "2006-03-19",
+    "collegedetails": [
+      {
+        "collegeName": "Garcia LLC College",
+        "city": "Port Christina",
+        "pincode": 18268
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "first_name": "David",
+    "email": "melissarobinson@yahoo.com",
+    "gender": "Male",
+    "dob": "2006-03-03",
+    "collegedetails": [
+      {
+        "collegeName": "Flynn-Maynard College",
+        "city": "New Tannerfurt",
+        "pincode": 76494
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "first_name": "Charles",
+    "email": "barronjohn@gmail.com",
+    "gender": "Other",
+    "dob": "1997-11-12",
+    "collegedetails": [
+      {
+        "collegeName": "Gibbs, Wilkins and Jackson College",
+        "city": "Collinsside",
+        "pincode": 40910
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "first_name": "Kathy",
+    "email": "valdezveronica@rosales-dickson.org",
+    "gender": "Other",
+    "dob": "2007-01-22",
+    "collegedetails": [
+      {
+        "collegeName": "Shaw-Clark College",
+        "city": "East John",
+        "pincode": 87085
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "first_name": "Christina",
+    "email": "vrich@hotmail.com",
+    "gender": "Female",
+    "dob": "2003-09-08",
+    "collegedetails": [
+      {
+        "collegeName": "Harris Inc College",
+        "city": "Port Zacharyland",
+        "pincode": 96354
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "first_name": "Stephanie",
+    "email": "racheldaugherty@hughes.com",
+    "gender": "Female",
+    "dob": "2001-09-02",
+    "collegedetails": [
+      {
+        "collegeName": "Aguirre and Sons College",
+        "city": "Ginaside",
+        "pincode": 26582
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "first_name": "Christopher",
+    "email": "nolanrobin@johnson.org",
+    "gender": "Female",
+    "dob": "2002-10-26",
+    "collegedetails": [
+      {
+        "collegeName": "Smith-Sanders College",
+        "city": "South Kelliville",
+        "pincode": 30002
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "first_name": "Karen",
+    "email": "garywhite@hotmail.com",
+    "gender": "Female",
+    "dob": "1997-10-21",
+    "collegedetails": [
+      {
+        "collegeName": "Murray, Taylor and Meyer College",
+        "city": "East Laurenville",
+        "pincode": 33861
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "first_name": "Lori",
+    "email": "pjacobs@morales.net",
+    "gender": "Female",
+    "dob": "2004-10-31",
+    "collegedetails": [
+      {
+        "collegeName": "Wang Group College",
+        "city": "New Kenneth",
+        "pincode": 62408
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "first_name": "Corey",
+    "email": "bill83@gmail.com",
+    "gender": "Female",
+    "dob": "2001-12-08",
+    "collegedetails": [
+      {
+        "collegeName": "Hernandez Group College",
+        "city": "North Analand",
+        "pincode": 64792
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "first_name": "Wendy",
+    "email": "camachotyler@payne.net",
+    "gender": "Male",
+    "dob": "2004-10-29",
+    "collegedetails": [
+      {
+        "collegeName": "Mcguire, Weiss and Knight College",
+        "city": "North Karenville",
+        "pincode": 69606
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "first_name": "Diana",
+    "email": "timothyflores@yahoo.com",
+    "gender": "Male",
+    "dob": "1998-12-30",
+    "collegedetails": [
+      {
+        "collegeName": "Moore-Velasquez College",
+        "city": "Lake Ricky",
+        "pincode": 40919
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "first_name": "Megan",
+    "email": "shawn33@martin.info",
+    "gender": "Female",
+    "dob": "1994-11-21",
+    "collegedetails": [
+      {
+        "collegeName": "Green Ltd College",
+        "city": "North Frank",
+        "pincode": 93342
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "first_name": "Donna",
+    "email": "zmcdonald@hotmail.com",
+    "gender": "Male",
+    "dob": "2000-09-10",
+    "collegedetails": [
+      {
+        "collegeName": "Chase, Brown and Allen College",
+        "city": "Williambury",
+        "pincode": 13331
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "first_name": "Manuel",
+    "email": "erincastro@gmail.com",
+    "gender": "Female",
+    "dob": "2003-07-22",
+    "collegedetails": [
+      {
+        "collegeName": "Pham-Morales College",
+        "city": "Lake Michaelview",
+        "pincode": 95928
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "first_name": "Christopher",
+    "email": "spruitt@gmail.com",
+    "gender": "Male",
+    "dob": "1995-02-08",
+    "collegedetails": [
+      {
+        "collegeName": "Bowman, Turner and Franco College",
+        "city": "New Jamesstad",
+        "pincode": 10122
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "first_name": "Michelle",
+    "email": "gcarson@hotmail.com",
+    "gender": "Other",
+    "dob": "1995-10-13",
+    "collegedetails": [
+      {
+        "collegeName": "Jenkins PLC College",
+        "city": "Kennethchester",
+        "pincode": 47926
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "first_name": "Cynthia",
+    "email": "stephenharris@hotmail.com",
+    "gender": "Other",
+    "dob": "2006-11-23",
+    "collegedetails": [
+      {
+        "collegeName": "Bishop, Perry and Hughes College",
+        "city": "Robertoview",
+        "pincode": 51023
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "first_name": "Kristen",
+    "email": "bgonzalez@perry.com",
+    "gender": "Female",
+    "dob": "2004-02-19",
+    "collegedetails": [
+      {
+        "collegeName": "Johnson, Washington and Harrington College",
+        "city": "Shaneside",
+        "pincode": 3491
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "first_name": "Sarah",
+    "email": "derrickmcdowell@yahoo.com",
+    "gender": "Female",
+    "dob": "2006-10-20",
+    "collegedetails": [
+      {
+        "collegeName": "Brown-Diaz College",
+        "city": "Everettside",
+        "pincode": 8154
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "first_name": "Melissa",
+    "email": "robinsongary@collins-crawford.com",
+    "gender": "Other",
+    "dob": "1997-12-19",
+    "collegedetails": [
+      {
+        "collegeName": "Bell Group College",
+        "city": "Amyhaven",
+        "pincode": 98191
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "first_name": "Alexander",
+    "email": "elizabeth34@hotmail.com",
+    "gender": "Other",
+    "dob": "2007-02-09",
+    "collegedetails": [
+      {
+        "collegeName": "Hall, Rodriguez and Gray College",
+        "city": "West Patriciachester",
+        "pincode": 6022
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "first_name": "Jennifer",
+    "email": "richardvillegas@brewer.com",
+    "gender": "Female",
+    "dob": "1997-07-21",
+    "collegedetails": [
+      {
+        "collegeName": "Montoya-Fisher College",
+        "city": "Lake Kimberlyhaven",
+        "pincode": 3966
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "first_name": "Melissa",
+    "email": "bjohnson@estrada-smith.info",
+    "gender": "Other",
+    "dob": "2005-08-27",
+    "collegedetails": [
+      {
+        "collegeName": "Taylor, Stanton and Miller College",
+        "city": "East Danielburgh",
+        "pincode": 68603
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "first_name": "Nicholas",
+    "email": "kelly08@hotmail.com",
+    "gender": "Male",
+    "dob": "1999-12-19",
+    "collegedetails": [
+      {
+        "collegeName": "Stewart, Fleming and Randolph College",
+        "city": "Morrisburgh",
+        "pincode": 54692
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "first_name": "Scott",
+    "email": "grayevelyn@howard.info",
+    "gender": "Other",
+    "dob": "1996-09-25",
+    "collegedetails": [
+      {
+        "collegeName": "Edwards Group College",
+        "city": "Port Erintown",
+        "pincode": 64341
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "first_name": "Justin",
+    "email": "gerald44@yahoo.com",
+    "gender": "Other",
+    "dob": "2004-08-28",
+    "collegedetails": [
+      {
+        "collegeName": "Turner, Taylor and Howard College",
+        "city": "Erikfort",
+        "pincode": 50362
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "first_name": "Jerry",
+    "email": "johnwu@hotmail.com",
+    "gender": "Male",
+    "dob": "2001-04-12",
+    "collegedetails": [
+      {
+        "collegeName": "Richardson, Fischer and Bowman College",
+        "city": "Lake Jose",
+        "pincode": 2721
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "first_name": "John",
+    "email": "jennifermckinney@yahoo.com",
+    "gender": "Male",
+    "dob": "1995-11-16",
+    "collegedetails": [
+      {
+        "collegeName": "Jones, Thomas and Sullivan College",
+        "city": "East Adambury",
+        "pincode": 65377
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "first_name": "Katelyn",
+    "email": "ayoung@perez-tucker.com",
+    "gender": "Male",
+    "dob": "1999-11-26",
+    "collegedetails": [
+      {
+        "collegeName": "Cooke PLC College",
+        "city": "Port Herbert",
+        "pincode": 85226
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "first_name": "Nicholas",
+    "email": "bgarcia@hammond.com",
+    "gender": "Male",
+    "dob": "1995-10-13",
+    "collegedetails": [
+      {
+        "collegeName": "Hall, Kelly and Higgins College",
+        "city": "East John",
+        "pincode": 55512
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "first_name": "Clifford",
+    "email": "jonathan90@gmail.com",
+    "gender": "Other",
+    "dob": "2002-07-08",
+    "collegedetails": [
+      {
+        "collegeName": "Mccarthy Ltd College",
+        "city": "Davidland",
+        "pincode": 23067
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "first_name": "Beth",
+    "email": "davidburns@johnson.com",
+    "gender": "Female",
+    "dob": "2000-09-04",
+    "collegedetails": [
+      {
+        "collegeName": "Burgess Ltd College",
+        "city": "Lawrenceton",
+        "pincode": 84875
+      }
+    ]
+  },
+  {
+    "id": 34,
+    "first_name": "Patrick",
+    "email": "robert73@turner.net",
+    "gender": "Male",
+    "dob": "1995-10-24",
+    "collegedetails": [
+      {
+        "collegeName": "Stafford-Serrano College",
+        "city": "West Stephanie",
+        "pincode": 77984
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "first_name": "Dennis",
+    "email": "rmeyer@gmail.com",
+    "gender": "Female",
+    "dob": "1998-05-21",
+    "collegedetails": [
+      {
+        "collegeName": "Martinez-Campbell College",
+        "city": "North Robertberg",
+        "pincode": 25723
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "first_name": "Cheryl",
+    "email": "sean18@garza.org",
+    "gender": "Other",
+    "dob": "1994-09-26",
+    "collegedetails": [
+      {
+        "collegeName": "Bates and Sons College",
+        "city": "Romeroport",
+        "pincode": 11912
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "first_name": "Katherine",
+    "email": "clinestephanie@yahoo.com",
+    "gender": "Male",
+    "dob": "1997-06-09",
+    "collegedetails": [
+      {
+        "collegeName": "Bradley, Vasquez and Klein College",
+        "city": "Farrellport",
+        "pincode": 77482
+      }
+    ]
+  },
+  {
+    "id": 38,
+    "first_name": "Stacey",
+    "email": "marc83@hotmail.com",
+    "gender": "Other",
+    "dob": "1998-04-14",
+    "collegedetails": [
+      {
+        "collegeName": "Adams-Cooper College",
+        "city": "New Tracyshire",
+        "pincode": 53742
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "first_name": "Laura",
+    "email": "xtrujillo@hill-morris.com",
+    "gender": "Other",
+    "dob": "1999-03-18",
+    "collegedetails": [
+      {
+        "collegeName": "Robinson, Walters and Bartlett College",
+        "city": "Reedside",
+        "pincode": 98993
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "first_name": "Chad",
+    "email": "brewerjeffrey@yahoo.com",
+    "gender": "Male",
+    "dob": "2003-06-04",
+    "collegedetails": [
+      {
+        "collegeName": "Lawrence, Ellis and Hall College",
+        "city": "South Carlport",
+        "pincode": 36272
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "first_name": "Sean",
+    "email": "amandasmith@hotmail.com",
+    "gender": "Female",
+    "dob": "2003-05-29",
+    "collegedetails": [
+      {
+        "collegeName": "Perez-Harris College",
+        "city": "Jonesview",
+        "pincode": 94443
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "first_name": "Madeline",
+    "email": "brianobrien@gmail.com",
+    "gender": "Male",
+    "dob": "2000-03-31",
+    "collegedetails": [
+      {
+        "collegeName": "Wilson-Perry College",
+        "city": "Port Kevinport",
+        "pincode": 72432
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "first_name": "Stefanie",
+    "email": "collinscarol@hotmail.com",
+    "gender": "Male",
+    "dob": "2000-06-26",
+    "collegedetails": [
+      {
+        "collegeName": "Jones-Castro College",
+        "city": "South Kara",
+        "pincode": 43548
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "first_name": "Nicholas",
+    "email": "sanchezricky@yahoo.com",
+    "gender": "Female",
+    "dob": "1997-09-17",
+    "collegedetails": [
+      {
+        "collegeName": "Murphy PLC College",
+        "city": "Port Mary",
+        "pincode": 90980
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "first_name": "Darin",
+    "email": "susan98@yahoo.com",
+    "gender": "Male",
+    "dob": "1999-08-23",
+    "collegedetails": [
+      {
+        "collegeName": "Bell Ltd College",
+        "city": "East Johnfort",
+        "pincode": 29060
+      }
+    ]
+  },
+  {
+    "id": 46,
+    "first_name": "John",
+    "email": "lyonsjohn@yahoo.com",
+    "gender": "Other",
+    "dob": "1995-07-20",
+    "collegedetails": [
+      {
+        "collegeName": "Walker-Anderson College",
+        "city": "Ryanton",
+        "pincode": 66812
+      }
+    ]
+  },
+  {
+    "id": 47,
+    "first_name": "Bruce",
+    "email": "janiceclark@crawford-lawson.biz",
+    "gender": "Female",
+    "dob": "2003-02-23",
+    "collegedetails": [
+      {
+        "collegeName": "Clark and Sons College",
+        "city": "Lake Paula",
+        "pincode": 10696
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "first_name": "Melanie",
+    "email": "gomeznathan@hotmail.com",
+    "gender": "Other",
+    "dob": "2004-07-21",
+    "collegedetails": [
+      {
+        "collegeName": "Harris-Chapman College",
+        "city": "New Lori",
+        "pincode": 52382
+      }
+    ]
+  },
+  {
+    "id": 49,
+    "first_name": "Brian",
+    "email": "cweeks@yahoo.com",
+    "gender": "Female",
+    "dob": "1998-08-08",
+    "collegedetails": [
+      {
+        "collegeName": "Johnson LLC College",
+        "city": "Port Dylan",
+        "pincode": 78085
+      }
+    ]
+  },
+  {
+    "id": 50,
+    "first_name": "Kristi",
+    "email": "zacharycharles@frye-hutchinson.com",
+    "gender": "Other",
+    "dob": "2007-03-13",
+    "collegedetails": [
+      {
+        "collegeName": "Hamilton-Garcia College",
+        "city": "Cathymouth",
+        "pincode": 50494
+      }
+    ]
+  }
+]
