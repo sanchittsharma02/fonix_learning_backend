@@ -1,68 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Show users</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
     <style>
-      #filtersec {
-    width: 50%;
+      .form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100vw;
+      }
+      form {
+        border: 1px solid;
+        border-radius: 10px;
+        padding: 20px;
+        /* align-self: center; */
+        height: 40%;
+        width: 40%;
+        /* margin: auto; */
       }
     </style>
-</head>
-<body>
-     
-   <div class="result">
-    <h3>All users</h3>
-    
-    <h4>total users : <%=totalUsers %></h4>
-    <h4>Apply filters   </h4>
-    <form action="/allUser" method="get">
-    <div class="input-group mb-3" id="filtersec">
-      <span class="input-group-text" id="basic-addon1">Sort</span>
-      <input type="text" class="form-control" placeholder="filter By age" aria-label="age" aria-describedby="basic-addon1" name="age">
-    </div>
-    <button type="submit" class="btn btn-outline-secondary">Apply</button>
-    <button type="submit" class="btn btn-outline-secondary">cancel</button>
-  </form>
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">id</th>
-          <th scope="col">First</th>
-          <th scope="col">email</th>
-          <th scope="col">gender</th>
-          <th scope="col">DOB</th>
-        </tr>
-      </thead>
-      <tbody>
-       <% if (users.length <=0) { %>
-        <h4>no users found</h4>
-       <% } %>
-        <%users.forEach(user => { %>
-          <tr>
-            <th scope="row"><%=user._id %></th>
-            <td><%=user.first_name %></td>
-            <td><%=user.email %></td>
-            <td><%=user.gender %></td>
-            <td><%=user.dob %></td>
-          </tr>
-        <% }) %>
-        <div>
-          <% if (page > 1) { %>
-            <a href="/users?page=<%=page - 1 %>">Previous</a>
-          <% } %>
-        
-          <% if (page < totalPages) { %>
-            <a href="/users?page=<%=page + 1 %>">Next</a>
-          <% } %>
+  </head>
+  <body>
+    <div class="form">
+      <form id="changepassword">
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            aria-describedby="password"
+            name="password"
+          />
+          <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
         </div>
-      
-      </tbody>
-    </table>
-   </div>
-      
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-</body>
+        <div class="mb-3">
+          <label for="confirmpassword" class="form-label"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            class="form-control"
+            id="confirmpassword"
+            name="confirmpassword"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+  <script>
+    document
+      .getElementById("changepassword")
+      .addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const formData = new URLSearchParams(new FormData(this));
+
+        try {
+          const path = window.location.pathname; 
+          const newtoken = path.split("/").pop();
+          const res = await fetch(`/resetpassword/${newtoken}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: formData,
+          });
+
+          const data = await res.json();
+          console.log("Server Response:", data);
+        } catch (err) {
+          console.error("Error:", err);
+        }
+      });
+  </script>
 </html>

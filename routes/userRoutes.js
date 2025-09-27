@@ -5,16 +5,19 @@ const path = require("path");
 const fs = require("fs");
 
 const {
-  userLogin,
   showAllUser,
   updateUser,
   deleteUser,
-  userRegister,
+
+  
   renderusers,
   softDelete,
+
   aggregation,
   popularproduct,
-  averageprice
+  averageprice,
+  forgotPassword,
+  resetpassword
 } = require("../controllers/userControllers");
 
 const restrictUser = require("../middlewares/auth");
@@ -51,62 +54,7 @@ router.get("/", async (req, res) => {
   res.render("index");
 });
 
-/**
- * @swagger
- * /register:
- *   post:
- *     summary: Register a new user
- *     description: Register a user with name, email, password, and profile image
- *     requestBody:
- *       required: true
- *       content:
- *         multipart/form-data:
- *           schema:
- *             type: object
- *             properties:
- *               name:
- *                 type: string
- *                 description: Name of the user
- *               mail:
- *                 type: string
- *                 description: Email of the user
- *               password:
- *                 type: string
- *                 description: Password of the user
- *               image:
- *                 type: string
- *                 format: binary
- *                 description: Profile image
- *     responses:
- *       200:
- *         description: User registered successfully
- */
 
-router.post("/register", upload.single("image"), userRegister);
-
-/**
- * @swagger
- * /login:
- *   post:
- *     summary: Login user
- *     description: Login a user with email and password
- *     parameters:
- *       - name: mail
- *         in: formData
- *         description: Email of the user
- *         required: true
- *         type: string
- *       - name: password
- *         in: formData
- *         description: Password of the user
- *         required: true
- *         type: string
- *     responses:
- *       200:
- *         description: User login successfully
- */
-
-router.post("/login", userLogin);
 // router.get("/allUser", restrictUser, showAllUser);
 /**
  * @swagger
@@ -179,5 +127,10 @@ router.delete("/delete", restrictUser, deleteUser);
 router.get("/totalspent",aggregation)
 router.get("/popularproduct",popularproduct)
 router.get("/averageprice",averageprice)
+router.post("/forgotpassword",forgotPassword)
+router.get("/resetpassword/:newtoken",async(req,res)=>{
+  return res.render("users")
+})
+router.patch("/resetpassword/:newtoken",resetpassword)
 
 module.exports = router;

@@ -1,4 +1,4 @@
-const { number, string, date } = require("joi")
+const { number, string, date, boolean } = require("joi")
 const mongoose=require("mongoose")
 const fs=require("fs")
 
@@ -25,8 +25,27 @@ const userSchema=new mongoose.Schema({
     isDeleted: {
         type: Boolean,
         default: false,
+      },
+      isVerified:{
+        type:Boolean,
+        default:false
       }
     
+})
+
+const tokenschema= new mongoose.Schema({
+    mail:{
+        type:String
+    },
+    otp:{
+        type :Number,
+        default:0
+    },
+    verifytoken:{
+        type:String,
+        default:""
+    },
+    createdAt: { type: Date, default: Date.now, expires: 600 }
 })
 const collegeSchema=new mongoose.Schema({
     collegeName:{
@@ -76,8 +95,9 @@ userDetails.set("toObject",{virtuals:true})
   
 const user =mongoose.model("user",userSchema)
 const UserDetails =mongoose.model("userDetails",userDetails)
+const token=mongoose.model("token",tokenschema)
 
-module.exports={user,UserDetails}
+module.exports={user,UserDetails,token}
 
 
 
